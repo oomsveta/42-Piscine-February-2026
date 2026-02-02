@@ -1,0 +1,6 @@
+# man 5 magic
+# <offset> <type> <value> <description>
+41 string 42 42 File Type
+
+# Testing the magic file:
+# echo "$(printf 'A%.0s' {1..41})42" | file -m ft_magic -
