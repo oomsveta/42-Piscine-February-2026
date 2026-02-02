@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ifconfig | grep --extended-regexp --only-matching '([[:xdigit:]]{2}:){5}([[:xdigit:]]{2})'
+ifconfig | grep "ether " | awk '{print $2}'
