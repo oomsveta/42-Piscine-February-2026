@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ls  -t `# sort by time, last modified first` \
+    -m `# fill width with a comma separated list of entries` \
+    -p `# append / indicator to directories`
