@@ -1,6 +1,6 @@
 #!/bin/sh
 
 # create test files:
-# touch "del~" "#keep" "keep#" "#del#" keep
+# touch del~ '#keep' 'keep#' '#del#' keep ~keep
 
 find . -type f \( -name '*~' -o -name '#*#' \) -delete

@@ -2,4 +2,4 @@
 
 rm --force z
 
-echo "Z" > z
+echo 'Z' > z
