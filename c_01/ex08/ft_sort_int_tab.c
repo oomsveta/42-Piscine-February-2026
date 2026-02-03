@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 10:07:24 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/03 11:29:23 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/03 23:53:22 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <string.h>
 #endif
 
-#include <stddef.h>		// provides size_t
 #include <stdbool.h>	// provides bool, false, true
+#include <stddef.h>		// provides size_t
 
 static void	ft_swap(int *restrict a, int *restrict b)
 {
