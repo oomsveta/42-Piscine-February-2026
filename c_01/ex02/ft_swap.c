@@ -6,12 +6,13 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 23:22:02 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/03 07:44:54 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/03 09:35:04 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifdef TEST
 # include <assert.h>
+# include <stdio.h>
 #endif
 
 void	ft_swap(int *a, int *b)
@@ -38,6 +39,7 @@ int	main(void)
 	a = 'A';
 	ft_swap(&a, &a);
 	assert(a == a);
+	puts("✅ All tests passed");
 }
 
 #endif
