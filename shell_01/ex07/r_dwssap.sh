@@ -3,11 +3,11 @@
 : "${FT_LINE1:=7}"
 : "${FT_LINE2:=15}"
 
-# cat the file, stripped of its comments
+# cat the file, stripping comments
 grep --invert-match '^#' /etc/passwd |
-# on even lines only, print the first field, using : as the field separator
-awk --field-separator : 'NR % 2 == 0 {print $1}' |
-# print every line backwards
+# print the first field of even-numbered lines, using ':' as the separator
+awk -F: 'NR % 2 == 0 {print $1}' |
+# reverse the characters of each line
 rev |
 # sort lines in reverse alphabetical order
 sort --reverse |
@@ -15,7 +15,5 @@ sort --reverse |
 sed --quiet "$FT_LINE1,$FT_LINE2"p |
 # join lines using a comma as the separator
 paste --serial --delimiters=, - |
-# add spaces after commas
-sed 's/,/, /g' |
-# append a period
-sed 's/.$/&./'
+# replace commas with comma-spaces and append a trailing dot
+sed 's/,/, /g; s/.$/&./'

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ls -l | sed -n 'p;n'
+ls -l | sed --quiet '1~2p'

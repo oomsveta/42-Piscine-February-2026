@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ifconfig | grep "ether " | awk '{print $2}'
+ifconfig | awk '/ether/ {print $2}'
