@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 22:23:52 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/02 22:30:39 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/04 17:47:39 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	ft_print_comb(void)
 		"369, 378, 379, 389, 456, 457, 458, 459, 467, 468, 469, 478, "
 		"479, 489, 567, 568, 569, 578, 579, 589, 678, 679, 689, 789";
 
-	write(STDOUT_FILENO, combs, sizeof combs);
+	write(STDOUT_FILENO, combs, sizeof combs - 1);
 }
