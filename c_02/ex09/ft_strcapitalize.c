@@ -6,15 +6,21 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 00:07:00 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/04 00:14:42 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/04 09:48:50 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifdef TEST
+# include <assert.h>
+# include <stdio.h>
+# include <string.h>
+#endif
 
 static int	ft_isalnum(int c)
 {
 	return (
-		((unsigned int)c | 0x20) - 'a' < 26u ||
-		(unsigned int)c - '0' < 10u
+		((unsigned int)c | 0x20) - 'a' < 26u
+		|| (unsigned int)c - '0' < 10u
 	);
 }
 
@@ -49,12 +55,40 @@ char	*ft_strcapitalize(char *str)
 	{
 		if (ft_isalnum(str[-1]))
 		{
-			*str = ft_toupper(*str);
+			*str = ft_tolower(*str);
 		}
 		else
 		{
-			*str = ft_tolower(*str);
+			*str = ft_toupper(*str);
 		}
 	}
 	return ((char *)s0);
 }
+
+#ifdef TEST
+
+// run with test main:
+// clang ft_strcapitalize.c -W{all,extra,error} -DTEST && ./a.out
+int	main(void)
+{
+	char	test_case[64];
+
+	strcpy(
+		test_case,
+		"salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un");
+	assert(
+		strcmp(
+			ft_strcapitalize(test_case),
+			"Salut, Comment Tu Vas ? 42mots Quarante-Deux; Cinquante+Et+Un"
+			) == 0
+		);
+	strcpy(test_case, "HELLO GUYS");
+	assert(strcmp(ft_strcapitalize(test_case), "Hello Guys") == 0);
+	strcpy(test_case, "");
+	assert(strcmp(ft_strcapitalize(test_case), "") == 0);
+	strcpy(test_case, "42@belgium");
+	assert(strcmp(ft_strcapitalize(test_case), "42@Belgium") == 0);
+	puts("✅ All tests passed");
+}
+
+#endif
