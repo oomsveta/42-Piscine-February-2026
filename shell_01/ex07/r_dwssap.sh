@@ -16,4 +16,6 @@ sed --quiet "$FT_LINE1,$FT_LINE2"p |
 # join lines using a comma as the separator
 paste --serial --delimiters=, - |
 # replace commas with comma-spaces and append a trailing dot
-sed 's/,/, /g; s/.$/&./'
+sed 's/,/, /g; s/.$/&./' |
+# remove trailing newline
+tr --delete '\n'
