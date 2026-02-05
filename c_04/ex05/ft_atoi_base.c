@@ -6,14 +6,14 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 09:56:56 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/05 10:14:27 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/05 16:09:31 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>	// provides bool, false, true
 #include <stddef.h>		// provides size_t
 
-static int  ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	return (c == ' ' || (unsigned int)c - '\t' < 5u);
 }
@@ -77,24 +77,34 @@ int	ft_atoi_base(char *str, char *base)
 		str += 1;
 	is_negative = false;
 	while (*str == '-' || *str == '+')
-		is_negative ^= *str == '-';
+		is_negative ^= *str++ == '-';
 	acc = 0;
 	digit_ptr = ft_strchr(base, *str);
 	while (digit_ptr != NULL && *digit_ptr != '\0')
 	{
 		acc = acc * radix + digit_ptr - base;
 		digit_ptr = ft_strchr(base, *str);
+		str += 1;
 	}
 	if (is_negative)
 		return ((int)-acc);
 	return ((int)acc);
 }
 
-#include <limits.h>
+/*
 #include <assert.h>
-int main(void)
+#include <limits.h>
+#include <stdio.h>
+
+int	main(void)
 {
-    assert(ft_atoi_base(" \t\n\v\f\r+--+-++10000000000000000000000000000000234", "01") == INT_MIN);
-    assert(ft_atoi_base("1010", "101") == 0);
-    assert(ft_atoi_base("", "01") == 0);
+	assert(
+		ft_atoi_base(
+			" \t\n\v\f\r+--+-++10000000000000000000000000000000234", "01"
+		) == INT_MIN
+	);
+	assert(ft_atoi_base("1010", "101") == 0);
+	assert(ft_atoi_base("", "01") == 0);
+	puts("LGTM :)");
 }
+*/
