@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 11:34:38 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/03 17:25:51 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/05 18:27:46 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,16 @@
 # include <string.h>
 #endif
 
-static char	*ft_stpcpy(char *dest, const char *src)
+char	*ft_strcpy(char *dest, char *src)
 {
+	const char	*d0 = dest;
+
 	while (*src != '\0')
 	{
 		*dest++ = *src++;
 	}
 	*dest = '\0';
-	return (dest);
-}
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	ft_stpcpy(dest, src);
-	return (dest);
+	return ((char *)d0);
 }
 
 #ifdef TEST
