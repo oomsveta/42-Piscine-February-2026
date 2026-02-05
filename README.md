@@ -24,3 +24,22 @@ At 42 School, the Piscine is the final step of the admissions process before acc
 |**4th Week**|C 10    |C 11    |C 12     |C 13    |Final Exam|        |       |
 
 "Bonus" project: BSQ
+
+## 📋 Coding Style
+
+My coding style conforms to the [Norm](./norm.en.pdf), a set of strict styling guidelines enforced for all C exercises, which all Pisciners must follow under penalty of a zero grade.
+
+Beyond purely cosmetic considerations, the Norm also forbids the following language constructs:
+
+- `for` loops
+- `do … while` loops
+- `switch` statements
+- `goto`
+- the ternary operator
+- declarations with initialization
+- assignments inside controlling expressions
+
+(non-exhaustive list)
+
+> [!TIP]
+> You can find the latest version of the Norm in the [Norminette repository](https://github.com/42School/norminette) – the program for checking conformity to the Norm. The version of the Norm embedded in this repo is the one in use during my Piscine.
