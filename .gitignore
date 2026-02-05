@@ -1,0 +1,16 @@
+# Vim swap files
+*.swp
+
+# WSL
+*Zone.Identifier
+
+# macOS
+.DS_Store
+
+# build leftovers
+a.out
+*.d
+*.o
+
+# clangd
+.cache
