@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 23:22:02 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/03 09:35:04 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/05 15:51:27 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(void)
 	assert(a == 'B' && b == 'A');
 	a = 'A';
 	ft_swap(&a, &a);
-	assert(a == a);
+	assert(a == 'A');
 	puts("✅ All tests passed");
 }
 
