@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 16:43:28 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/04 16:49:33 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/06 23:27:25 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # include <assert.h>
 # include <stdio.h>
 #endif
-
-#include <stddef.h>	// provides size_t
 
 int	ft_strcmp(char *s1, char *s2)
 {
