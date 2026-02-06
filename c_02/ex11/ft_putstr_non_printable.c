@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 10:19:40 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/04 11:45:02 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/06 11:53:20 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,19 @@ static int	ft_isprint(int c)
 
 static void	ft_putchar(int c)
 {
-	write(STDOUT_FILENO, &c, 1);
+	const unsigned char	uc = (const unsigned char)c;
+
+	write(STDOUT_FILENO, &uc, 1);
 }
 
-static void	print_hex(int c)
+static void	print_byte(unsigned char byte)
 {
 	const char	*hex_digits = "0123456789abcdef";
 	char		buffer[3];
 
 	buffer[0] = '\\';
-	buffer[1] = hex_digits[c >> 4];
-	buffer[2] = hex_digits[c & 15];
+	buffer[1] = hex_digits[byte >> 4];
+	buffer[2] = hex_digits[byte & 15];
 	write(STDOUT_FILENO, buffer, sizeof buffer);
 }
 
@@ -43,7 +45,7 @@ void	ft_putstr_non_printable(char *str)
 		}
 		else
 		{
-			print_hex(*str);
+			print_byte(*(unsigned char *)str);
 		}
 		str += 1;
 	}
@@ -55,7 +57,7 @@ void	ft_putstr_non_printable(char *str)
 
 int	main(void)
 {
-	ft_putstr_non_printable("Hello\nHow are you?");
+	ft_putstr_non_printable("Hello\nHow are you?Test\x80");
 }
 
 #endif
