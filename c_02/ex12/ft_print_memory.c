@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:31:54 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/06 12:22:31 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/06 20:40:17 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,29 +83,30 @@ static void	print_as_text(const void *buffer, size_t size)
 	}
 }
 
-// compute min in one line without ternary:
-// https://graphics.stanford.edu/~seander/bithacks.html#IntegerMinOrMax
-
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	const unsigned char	*bytes = (const unsigned char *)addr;
-	size_t				line_width;
+	size_t				chunk_size;
+	size_t				i;
 
 	if (size == 0)
 	{
 		return (addr);
 	}
-	line_width = size ^ ((LINE_WIDTH ^ size) & -(LINE_WIDTH < size));
-	while (size != 0)
+	i = 0;
+	while (i < size)
 	{
-		print_address(bytes);
+		chunk_size = size - i;
+		if (chunk_size > LINE_WIDTH)
+		{
+			chunk_size = LINE_WIDTH;
+		}
+		print_address(bytes + i);
 		write(STDOUT_FILENO, ": ", 2);
-		hexdump(bytes, line_width);
-		print_as_text(bytes, line_width);
+		hexdump(bytes + i, chunk_size);
+		print_as_text(bytes + i, chunk_size);
 		write(STDOUT_FILENO, "\n", 1);
-		size -= line_width;
-		line_width = size ^ ((LINE_WIDTH ^ size) & -(LINE_WIDTH < size));
-		bytes += LINE_WIDTH;
+		i += LINE_WIDTH;
 	}
 	return (addr);
 }
