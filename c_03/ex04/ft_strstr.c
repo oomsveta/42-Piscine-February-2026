@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 18:46:48 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/04 18:58:59 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/06 23:08:35 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ static int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	size_t		len;
-	const char	*next_alike;
+	size_t	len;
+	char	*match_start;
 
 	if (!*to_find)
 	{
@@ -74,16 +74,16 @@ char	*ft_strstr(char *str, char *to_find)
 	len = ft_strlen(to_find);
 	while (*str)
 	{
-		next_alike = ft_strchr(str, *to_find);
-		if (!next_alike)
+		match_start = ft_strchr(str, *to_find);
+		if (!match_start)
 		{
 			break ;
 		}
-		if (ft_strncmp(next_alike, to_find, len) == 0)
+		if (ft_strncmp(match_start, to_find, len) == 0)
 		{
-			return ((char *)next_alike);
+			return ((char *)match_start);
 		}
-		str = (char *)next_alike + 1;
+		str = (char *)match_start + 1;
 	}
 	return (NULL);
 }
