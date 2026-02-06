@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 23:07:15 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/06 08:56:52 by lwicket          ###   ########.fr       */
+/*   Created: 2026/02/06 08:41:13 by lwicket           #+#    #+#             */
+/*   Updated: 2026/02/06 09:01:39 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ static void	ft_puts(const char *str)
 
 int	main(int argc, char *argv[])
 {
-	if (argc > 0)
+	while (argc > 1)
 	{
-		ft_puts(argv[0]);
+		ft_puts(argv[argc - 1]);
+		argc -= 1;
 	}
 }

@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 23:07:15 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/06 08:56:52 by lwicket          ###   ########.fr       */
+/*   Created: 2026/02/06 08:32:50 by lwicket           #+#    #+#             */
+/*   Updated: 2026/02/06 08:58:24 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>	// provides size_t, STDOUT_FILENO, write
+#include <stdlib.h>	// provides EXIT_SUCCESS, size_t
+#include <unistd.h>	// provides STDOUT_FILENO, write
 
 static size_t	ft_strlen(const char *str)
 {
@@ -32,8 +33,12 @@ static void	ft_puts(const char *str)
 
 int	main(int argc, char *argv[])
 {
-	if (argc > 0)
+	if (argc < 2)
 	{
-		ft_puts(argv[0]);
+		return (EXIT_SUCCESS);
+	}
+	while (*++argv != NULL)
+	{
+		ft_puts(*argv);
 	}
 }

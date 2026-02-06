@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 23:07:15 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/06 08:56:52 by lwicket          ###   ########.fr       */
+/*   Created: 2026/02/06 08:59:57 by lwicket           #+#    #+#             */
+/*   Updated: 2026/02/06 09:10:36 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>	// provides size_t, STDOUT_FILENO, write
+#include <stdlib.h>	// provides EXIT_SUCCESS
 
-static size_t	ft_strlen(const char *str)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] != '\0')
+	while (*s1 == *s2 && *s1 != '\0')
 	{
-		len += 1;
+		s1 += 1;
+		s2 += 1;
 	}
-	return (len);
-}
-
-static void	ft_puts(const char *str)
-{
-	write(STDOUT_FILENO, str, ft_strlen(str));
-	write(STDOUT_FILENO, "\n", 1);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
 
 int	main(int argc, char *argv[])
 {
-	if (argc > 0)
+	if (argc < 2)
 	{
-		ft_puts(argv[0]);
+		return (EXIT_SUCCESS);
 	}
 }
