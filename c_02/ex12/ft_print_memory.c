@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:31:54 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/04 15:42:43 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/06 12:22:31 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		print_address(bytes);
 		write(STDOUT_FILENO, ": ", 2);
 		hexdump(bytes, line_width);
-		write(STDOUT_FILENO, " ", 1);
 		print_as_text(bytes, line_width);
 		write(STDOUT_FILENO, "\n", 1);
 		size -= line_width;
@@ -120,5 +119,4 @@ int	main(void)
 		" peut faire avec\t\n\tprint_memory\n\n\n\tlol.lol\n ";
 
 	ft_print_memory((void *)example, sizeof example);
-}
-*/
+} */
