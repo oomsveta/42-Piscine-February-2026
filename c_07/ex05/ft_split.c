@@ -6,11 +6,11 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:09:05 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/07 21:10:10 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/08 00:27:11 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>	// provides free, malloc, NULL, size_t
+#include <stdlib.h>	// provides malloc, NULL, size_t
 
 static size_t	ft_strspn(const char *str, const char *accept)
 {
