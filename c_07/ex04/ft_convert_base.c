@@ -6,43 +6,27 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 22:29:05 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/06 22:54:33 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/07 19:21:49 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>	// provides bool, false, true
-#include <stdlib.h>
-#include <limits.h>
+#include <stddef.h>		// provides NULL, size_t
+#include <limits.h>		// provides CHAR_BIT
 
-static char	*ft_strchr(const char *str, int c)
+char	*ft_skip_spaces(const char *str);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strcpy(char *restrict dest, const char *restrict src);
+char	*ft_strdup(const char *src);
+size_t	ft_strlen(const char *str);
+
+static unsigned int	ft_abs(int n)
 {
-	c = (unsigned char)c;
-	while (true)
+	if (n < 0)
 	{
-		if ((unsigned char)*str == c)
-		{
-			return ((char *)str);
-		}
-		if (*str == '\0')
-		{
-			return (NULL);
-		}
-		str += 1;
+		return (-(unsigned int)n);
 	}
-}
-
-static int  ft_isspace(int c)
-{
-	return (c == ' ' || (unsigned int)c - '\t' < 5u);
-}
-
-static char	*ft_skip_spaces(const char *str)
-{
-	while (ft_isspace(*str))
-	{
-		str += 1;
-	}
-	return ((char *)str);
+	return (n);
 }
 
 static bool	is_valid_base(const char *base)
@@ -62,22 +46,76 @@ static bool	is_valid_base(const char *base)
 	return (true);
 }
 
+static int	ft_atoi_base(const char *str, const char *digits)
+{
+	bool			is_negative;
+	unsigned long	acc;
+	const char		*digit_ptr;
+	const size_t	radix = ft_strlen(digits);
+
+	str = ft_skip_spaces(str);
+	is_negative = false;
+	while (*str == '-' || *str == '+')
+	{
+		is_negative ^= *str++ == '-';
+	}
+	acc = 0;
+	digit_ptr = ft_strchr(digits, *str);
+	while (digit_ptr != NULL && *digit_ptr != '\0')
+	{
+		acc = acc * radix + digit_ptr - digits;
+		str += 1;
+		digit_ptr = ft_strchr(digits, *str);
+	}
+	if (is_negative)
+	{
+		return ((int)-acc);
+	}
+	return ((int)acc);
+}
+
+static char	*ft_itoa_base(int n, char *digits, char *dst, size_t dst_len)
+{
+	unsigned int	acc;
+	const size_t	radix = ft_strlen(digits);
+
+	acc = ft_abs(n);
+	dst = dst + dst_len - 1;
+	*dst = '\0';
+	while (acc >= radix)
+	{
+		*--dst = digits[acc % radix];
+		acc /= radix;
+	}
+	*--dst = digits[acc % radix];
+	if (n < 0)
+	{
+		*--dst = '-';
+	}
+	return (dst);
+}
+
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	bool	is_negative;
 	char	buffer[sizeof(int) * CHAR_BIT + 2];
-	char	*ptr;
+	int		value;
 
 	if (!is_valid_base(base_from) || !is_valid_base(base_to))
 	{
 		return (NULL);
 	}
-	nbr = ft_skip_spaces(nbr);
-	is_negative = false;
-	while (*nbr == '-' || *nbr == '+')
-	{
-		is_negative ^= *nbr++ == '-';
-	}
-	ptr = buffer;
-	*ptr-- = '\0';
+	value = ft_atoi_base(nbr, base_from);
+	return (ft_strdup(ft_itoa_base(value, base_to, buffer, sizeof buffer)));
 }
+
+/* #include <stdio.h>
+#include <stdlib.h>
+
+int	main(void)
+{
+	char	*lol;
+
+	lol = ft_convert_base("1010", "01", "0123456789abcdef");
+	puts(lol);
+	free(lol);
+}*/
