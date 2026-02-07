@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 09:56:56 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/05 16:09:31 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/07 13:15:22 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,16 @@ int	ft_atoi_base(char *str, char *base)
 	while (digit_ptr != NULL && *digit_ptr != '\0')
 	{
 		acc = acc * radix + digit_ptr - base;
-		digit_ptr = ft_strchr(base, *str);
 		str += 1;
+		digit_ptr = ft_strchr(base, *str);
 	}
 	if (is_negative)
 		return ((int)-acc);
 	return ((int)acc);
 }
 
-/*
-#include <assert.h>
+
+/* #include <assert.h>
 #include <limits.h>
 #include <stdio.h>
 
@@ -104,7 +104,8 @@ int	main(void)
 		) == INT_MIN
 	);
 	assert(ft_atoi_base("1010", "101") == 0);
+	assert(ft_atoi_base("1010", "01") == 10);
 	assert(ft_atoi_base("", "01") == 0);
 	puts("LGTM :)");
-}
-*/
+} */
+
