@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 11:41:44 by cllaurad          #+#    #+#             */
-/*   Updated: 2026/02/08 08:55:46 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/08 08:59:57 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	print_map(int width, int height, const char style[6])
 bool	validate_params(int width, int height)
 {
 	const char	too_low_error[] = ""
-		"Error: x and y must be non-null, positive values.";
+		"Error: x and y must be non-null, positive values.\n";
 	const char	too_high_error[] = ""
-		"Error: x and/or y are too high (max: 420, 110).";
+		"Error: x and/or y are too high (max: 420, 110).\n";
 
 	if (width <= 0 || height <= 0)
 	{
