@@ -6,19 +6,12 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 10:32:23 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/08 11:12:21 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/08 12:33:38 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>	// provides free, malloc, size_t
-
-// TODO: no typedefs in .c files
-typedef struct s_stock_str
-{
-	int		size;
-	char	*str;
-	char	*copy;
-}	t_stock_str;
+#include "ft_stock_str.h"
 
 static size_t	ft_strlen(const char *str)
 {
@@ -43,9 +36,11 @@ static void	*ft_memdup(const void *buffer, size_t n)
 	{
 		return (NULL);
 	}
+	i = 0;
 	while (i < n)
 	{
 		dup[i] = bytes[i];
+		i += 1;
 	}
 	return ((void *)dup);
 }
@@ -69,7 +64,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	t_stock_str	*strings;
 	t_stock_str	string;
-	size_t		i;
+	int			i;
 
 	strings = malloc(sizeof(t_stock_str [ac + 1]));
 	if (!strings)
@@ -82,9 +77,9 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	{
 		string = (t_stock_str){.size = ft_strlen(av[i]), .str = av[i]};
 		string.copy = ft_memdup(string.str, string.size + 1);
-		if (!string.copy && i > 0)
+		if (!string.copy)
 		{
-			free_all(&strings, i - 1);
+			free_all(&strings, i);
 			return (NULL);
 		}
 		string.copy[string.size] = '\0';
