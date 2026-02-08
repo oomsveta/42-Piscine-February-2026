@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 11:41:44 by cllaurad          #+#    #+#             */
-/*   Updated: 2026/02/07 23:09:10 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/08 08:55:46 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ bool	validate_params(int width, int height)
 	}
 	if (width > 420 || height > 110)
 	{
-		write(STDOUT_FILENO, too_low_error, sizeof too_high_error - 1);
+		write(STDOUT_FILENO, too_high_error, sizeof too_high_error - 1);
 		return (false);
 	}
 	return (true);
