@@ -14,6 +14,7 @@ a.out
 
 # clangd
 .cache
+compile_commands.json
 
 # VSCode settings
 .vscode
