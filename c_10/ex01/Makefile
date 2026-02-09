@@ -50,10 +50,10 @@ norm:
 	norminette $(SRC) *.h
 
 debug:
-	@$(MAKE) DEBUG=1 all
+	@$(MAKE) DEBUG=1 re
 
 asan:
-	@$(MAKE) DEBUG=1 ASAN=1 all
+	@$(MAKE) DEBUG=1 ASAN=1 re
 
 compile_commands.json: fclean
 	bear -- $(MAKE) all
