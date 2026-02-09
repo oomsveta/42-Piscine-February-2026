@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 09:56:56 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/09 17:00:24 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/09 19:19:18 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ static bool	is_valid_base(const char *base)
 	}
 	while (*base != '\0')
 	{
-		if (*base == '+' || *base == '-' || ft_strchr(base + 1, *base))
+		if (*base == '+' || *base == '-'
+			|| ft_isspace(*base)
+			|| ft_strchr(base + 1, *base)
+		)
 		{
 			return (false);
 		}
@@ -104,6 +107,8 @@ int	main(void)
 	);
 	assert(ft_atoi_base("1010", "101") == 0);
 	assert(ft_atoi_base("1010", "01") == 10);
-	assert(ft_atoi_base("", "01") == 0);
+	assert(ft_atoi_base("10", "0123456789ABCDEF") == 16);
+	assert(ft_atoi_base("10a10", "01") == 2);
+	assert(ft_atoi_base("0\v", "0\v") == 0);
 	puts("LGTM :)");
 } */
