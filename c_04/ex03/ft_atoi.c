@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 22:14:03 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/04 22:28:06 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/09 17:00:15 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_isdigit(int c)
 	return ((unsigned int)c - '0' < 10u);
 }
 
-static int  ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	return (c == ' ' || (unsigned int)c - '\t' < 5u);
 }
@@ -66,7 +66,7 @@ int	ft_atoi(char *str)
 
 // run with test main:
 // clang ft_atoi.c -W{all,extra,error} -DTEST && ./a.out
-int main(void)
+int	main(void)
 {
 	assert(ft_atoi("513") == 513);
 	assert(ft_atoi("+2") == 2);

@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 09:56:56 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/07 13:15:22 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/09 17:00:24 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ int	ft_atoi_base(char *str, char *base)
 	return ((int)acc);
 }
 
-
 /* #include <assert.h>
 #include <limits.h>
 #include <stdio.h>
@@ -108,4 +107,3 @@ int	main(void)
 	assert(ft_atoi_base("", "01") == 0);
 	puts("LGTM :)");
 } */
-
