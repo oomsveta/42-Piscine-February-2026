@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 21:41:45 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/09 09:48:32 by lwicket          ###   ########.fr       */
+/*   Created: 2026/02/09 09:47:10 by lwicket           #+#    #+#             */
+/*   Updated: 2026/02/09 10:12:13 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include <stddef.h> // provides size_t
 
-#include <stddef.h>	// provides size_t
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
 
-int		ft_strcmp(const char *s1, const char *s2);
-size_t	ft_strlen(const char *str);
+	len = 0;
+	while (str[len] != '\0')
+	{
+		len += 1;
+	}
+	return (len);
+}

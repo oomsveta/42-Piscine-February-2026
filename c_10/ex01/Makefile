@@ -4,7 +4,7 @@ INCLUDE_DIR := include
 BUILD_DIR := build
 SRC_DIR := src
 
-SRC_FILES := main.c
+SRC_FILES := main.c ft_strcmp.c ft_strlen.c
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC))
 DEP := $(OBJ:.o=.d)
