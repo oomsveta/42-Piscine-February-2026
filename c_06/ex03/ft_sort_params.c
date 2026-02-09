@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 08:59:57 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/08 22:44:08 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/09 09:38:13 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,16 @@ static void	selection_sort(char *arr[], size_t size)
 	}
 }
 
-static void	ft_putstr(const char *str)
+static void	ft_puts(const char *s)
 {
 	size_t	len;
 
 	len = 0;
-	while (str[len] != '\0')
+	while (s[len] != '\0')
 	{
 		len += 1;
 	}
-	write(STDOUT_FILENO, str, len);
+	write(STDOUT_FILENO, s, len);
 	write(STDOUT_FILENO, "\n", 1);
 }
 
@@ -79,8 +79,8 @@ int	main(int argc, char *argv[])
 		return (EXIT_SUCCESS);
 	}
 	selection_sort(argv + 1, argc - 1);
-	while (*++argv)
+	while (*++argv != NULL)
 	{
-		ft_putstr(*argv);
+		ft_puts(*argv);
 	}
 }
