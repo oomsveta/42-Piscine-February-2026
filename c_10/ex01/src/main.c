@@ -6,17 +6,16 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 21:41:49 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/09 14:05:10 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/10 12:02:50 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>	// provides EXIT_FAILURE, EXIT_SUCCESS
-#include <fcntl.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <libgen.h>	// provides basename
 #include <errno.h>
+#include <fcntl.h>
+#include <libgen.h>
+#include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include "ft.h"
 
 #define BUFFER_SIZE 30720
