@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:31:54 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/06 20:40:17 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/10 10:14:25 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static void	print_byte(unsigned char byte)
 {
-	const char	*hex_digits = "0123456789abcdefghijklmnopqrstuvwxyz";
+	const char	*hex_digits = "0123456789abcdef";
 	const char	buffer[2] = {hex_digits[byte >> 4], hex_digits[byte & 15]};
 
 	write(STDOUT_FILENO, buffer, sizeof buffer);
