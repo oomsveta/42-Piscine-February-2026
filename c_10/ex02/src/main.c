@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 21:41:49 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/10 13:45:36 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/10 20:35:43 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main(int argc, char *argv[])
 	nbr_of_bytes = parse_byte_option(argv);
 	if (nbr_of_bytes == NO_OPTION)
 	{
-		return (print_tail(argv));
+		// TODO?
+		//return (print_tail(argv));
 	}
 	if (nbr_of_bytes > 0)
 	{
