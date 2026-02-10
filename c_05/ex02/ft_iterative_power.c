@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:24:24 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/05 17:03:55 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/10 15:17:22 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_iterative_power(int nb, int power)
 
 // run with test main:
 // clang ft_iterative_power.c -W{all,extra,error} -DTEST && ./a.out
-int main(void)
+int	main(void)
 {
 	assert(ft_iterative_power(2, 9) == 512);
 	assert(ft_iterative_power(-2, 31) == -2147483648);

@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 17:05:30 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/05 17:11:02 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/10 15:17:36 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_recursive_power(int nb, int power)
 
 // run with test main:
 // clang ft_recursive_power.c -W{all,extra,error} -DTEST && ./a.out
-int main(void)
+int	main(void)
 {
 	assert(ft_recursive_power(2, 9) == 512);
 	assert(ft_recursive_power(-2, 31) == -2147483648);
