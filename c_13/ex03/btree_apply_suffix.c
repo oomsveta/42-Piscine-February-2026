@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_apply_infix.c                                :+:      :+:    :+:   */
+/*   btree_apply_suffix.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 15:44:41 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 18:40:42 by lwicket          ###   ########.fr       */
+/*   Created: 2026/02/12 18:38:40 by lwicket           #+#    #+#             */
+/*   Updated: 2026/02/12 18:44:44 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 #include "ft_btree.h"	// provides t_btree
 
-void btree_apply_infix(t_btree *root, void (*applyf)(void *))
+void btree_apply_suffix(t_btree *root, void (*applyf)(void *))
 {
 	if (!root)
 	{
 		return ;
 	}
-	btree_apply_infix(root->left, applyf);
+	btree_apply_suffix(root->left, applyf);
+	btree_apply_suffix(root->right, applyf);
 	applyf(root->item);
-	btree_apply_infix(root->right, applyf);
 }
 
 #ifdef TEST
@@ -37,12 +37,12 @@ int	main(void)
 	t_btree	d;
 	t_btree	e;
 
-	a = (t_btree){.left = &b, .right = &c, .item = "4"};
-	b = (t_btree){.left = &d, .right = &e, .item = "2"};
-	c = (t_btree){.left = NULL, .right = NULL, .item = "5"};
+	a = (t_btree){.left = &b, .right = &c, .item = "5"};
+	b = (t_btree){.left = &d, .right = &e, .item = "3"};
+	c = (t_btree){.left = NULL, .right = NULL, .item = "4"};
 	d = (t_btree){.left = NULL, .right = NULL, .item = "1"};
-	e = (t_btree){.left = NULL, .right = NULL, .item = "3"};
-	btree_apply_infix(&a, (void (*)(void *))puts);
+	e = (t_btree){.left = NULL, .right = NULL, .item = "2"};
+	btree_apply_suffix(&a, (void (*)(void *))puts);
 }
 
 #endif
