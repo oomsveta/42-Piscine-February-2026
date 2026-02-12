@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:44:26 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 08:41:34 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 09:44:18 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	ft_swap(void **a, void **b)
 {
-	void	**tmp;
+	void	*tmp;
 
 	tmp = *a;
 	*a = *b;
