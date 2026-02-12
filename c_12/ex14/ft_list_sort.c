@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:44:26 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 09:44:18 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 10:09:53 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_swap(void **a, void **b)
 	*b = tmp;
 }
 
-void ft_list_sort(t_list **begin_list, int (*cmp)())
+void	ft_list_sort(t_list **begin_list, int (*cmp)())
 {
 	t_list	*current;
 	t_list	*next;

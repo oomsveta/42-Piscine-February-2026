@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 08:40:41 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 10:02:05 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 10:08:39 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_sorted_list_insert(t_list **begin_list, void *data, int (*cmp)())
 	new_node = ft_create_elem(data);
 	if (!new_node)
 	{
-		return;
+		return ;
 	}
 	current = begin_list;
 	while (*current != NULL && cmp((*current)->data, data) < 0)

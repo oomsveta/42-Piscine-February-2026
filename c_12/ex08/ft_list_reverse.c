@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:06:20 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 18:34:05 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 10:09:00 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stddef.h>		// provides NULL
 #include "ft_list.h"	// provides t_list
 
-void ft_list_reverse(t_list **begin_list)
+void	ft_list_reverse(t_list **begin_list)
 {
 	t_list	*prev;
 	t_list	*next;

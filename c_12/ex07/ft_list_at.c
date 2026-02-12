@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:57:01 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 17:02:55 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 10:09:39 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "ft_list.h"	// provides t_list
 #include <stddef.h>		// provides size_t
 
-t_list *ft_list_at(t_list *begin_list, unsigned int nbr)
+t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
 {
 	size_t	i;
 
