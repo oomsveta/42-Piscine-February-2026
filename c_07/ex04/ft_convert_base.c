@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 22:29:05 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/07 19:21:49 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 11:34:26 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,13 @@ static bool	is_valid_base(const char *base)
 	}
 	while (*base != '\0')
 	{
-		if (*base == '+' || *base == '-' || ft_strchr(base + 1, *base))
+		if (
+			*base == '+'
+			|| *base == '-'
+			|| ft_strchr(base + 1, *base)
+			|| *base == ' '
+			|| (unsigned int)*base - '\t' < 5u
+		)
 		{
 			return (false);
 		}
