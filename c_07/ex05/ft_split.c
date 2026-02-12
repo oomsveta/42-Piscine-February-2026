@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:09:05 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/08 00:27:11 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 11:30:45 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,3 +122,27 @@ char	**ft_split(char *str, char *charset)
 	}
 	return (words);
 }
+
+/* 
+#include <assert.h>
+#include <stdio.h>
+#include <string.h>
+
+// clang ft_split.c -W{all,extra} -fsanitize=address && ./a.out
+int	main(void)
+{
+	const char	test[] = "  yo, la  team";
+	char		**res;
+
+	res = ft_split((char *)test, " ,");
+	assert(strcmp(res[0], "yo") == 0);
+	assert(strcmp(res[1], "la") == 0);
+	assert(strcmp(res[2], "team") == 0);
+	assert(res[3] == NULL);
+	free(res[0]);
+	free(res[1]);
+	free(res[2]);
+	free(res);
+	puts("✅ All tests passed");
+}
+*/
