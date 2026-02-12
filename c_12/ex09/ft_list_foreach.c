@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 15:30:16 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 15:39:33 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 08:42:42 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # include <stdio.h>
 #endif
 
-#include "ft_list.h"	// provides t_list
 #include <stddef.h>		// provides NULL
+#include "ft_list.h"	// provides t_list
 
 void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {

@@ -6,12 +6,12 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:44:26 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 18:51:27 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 08:41:34 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "ft_list.h"
+#include <stddef.h>		// provides NULL
+#include "ft_list.h"	// provides t_list
 
 static void	ft_swap(void **a, void **b)
 {
