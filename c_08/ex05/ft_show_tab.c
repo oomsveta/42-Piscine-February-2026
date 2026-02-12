@@ -60,7 +60,7 @@ static void	ft_putnbr(int n)
 	write(STDOUT_FILENO, ptr, buffer + sizeof buffer - ptr);
 }
 
-static int ft_puts(const char *s)
+static int	ft_puts(const char *s)
 {
 	ssize_t	bytes_written;
 
