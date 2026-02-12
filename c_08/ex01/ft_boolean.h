@@ -13,7 +13,10 @@
 #pragma once
 
 #include <stdlib.h>		// provides EXIT_SUCCESS
-#include <stdbool.h>	// provides false, true
+#include <stdbool.h>	// provides bool, false, true
+#include <unistd.h>		// provides write (needed?)
+
+typedef bool	t_bool;
 
 #define EVEN(x) ((x) % 2 == 0)
 #define TRUE true
