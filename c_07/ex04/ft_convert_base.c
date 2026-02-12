@@ -108,14 +108,24 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (ft_strdup(ft_itoa_base(value, base_to, buffer, sizeof buffer)));
 }
 
-/* #include <stdio.h>
+/* 
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <assert.h>
 
+// clang *.c -W{all,extra} -fsanitize=address,undefined && ./a.out
 int	main(void)
 {
-	char	*lol;
+	char	*test;
 
-	lol = ft_convert_base("1010", "01", "0123456789abcdef");
-	puts(lol);
-	free(lol);
-}*/
+	test = ft_convert_base("1010", "01", "0123456789abcdef");
+	assert(strcmp(test, "a") == 0);
+	free(test);
+	test = ft_convert_base(
+		" \t\n\v\f\r+--+-++10000000000000000000000000000000", "01", "poneyvif");
+	assert(strcmp(test, "-npppppppppp") == 0);
+	free(test);
+	puts("✅ All tests passed");
+}
+*/
