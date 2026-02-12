@@ -91,9 +91,10 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (joined);
 }
 
-/* #include <stdio.h>
+/*
+#include <stdio.h>
 
-// clang ft_strjoin.c -W{all,extra,error} && ./a.out
+// clang ft_strjoin.c -W{all,extra,error} -fsanitize=address && ./a.out
 int	main(int argc, char *argv[])
 {
 	char	*joined;
@@ -104,4 +105,6 @@ int	main(int argc, char *argv[])
 	}
 	joined = ft_strjoin(argc - 1, argv + 1, ", ");
 	puts(joined);
-} */
+	free(joined);
+}
+*/
