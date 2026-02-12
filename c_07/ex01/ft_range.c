@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 12:30:13 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/06 21:43:38 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/12 10:39:51 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	*ft_range(int min, int max)
 
 // run with test main:
 // clang ft_range.c -W{all,extra,error} -DTEST && ./a.out
-int main(void)
+int	main(void)
 {
 	int	*range;
 
