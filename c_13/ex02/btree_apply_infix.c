@@ -6,11 +6,12 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:44:41 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 18:40:42 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/13 09:59:03 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifdef TEST
+# include <stddef.h>
 # include <stdio.h>
 #endif
 
@@ -29,6 +30,8 @@ void btree_apply_infix(t_btree *root, void (*applyf)(void *))
 
 #ifdef TEST
 
+// run with test main:
+// clang -W{all,extra} btree_apply_infix.c -DTEST && ./a.out
 int	main(void)
 {
 	t_btree	a;
@@ -37,11 +40,11 @@ int	main(void)
 	t_btree	d;
 	t_btree	e;
 
-	a = (t_btree){.left = &b, .right = &c, .item = "4"};
+	a = (t_btree){.left = &b, .right = &c, .item = "1"};
 	b = (t_btree){.left = &d, .right = &e, .item = "2"};
-	c = (t_btree){.left = NULL, .right = NULL, .item = "5"};
-	d = (t_btree){.left = NULL, .right = NULL, .item = "1"};
-	e = (t_btree){.left = NULL, .right = NULL, .item = "3"};
+	c = (t_btree){.left = NULL, .right = NULL, .item = "3"};
+	d = (t_btree){.left = NULL, .right = NULL, .item = "4"};
+	e = (t_btree){.left = NULL, .right = NULL, .item = "5"};
 	btree_apply_infix(&a, (void (*)(void *))puts);
 }
 
