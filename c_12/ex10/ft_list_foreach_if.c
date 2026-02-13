@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:28:19 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 08:42:34 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/13 09:12:41 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@
 #include "ft_list.h"	// provides t_list
 
 void	ft_list_foreach_if(
-	t_list *begin_list, void (*f)(void *), void *data_ref, int (*cmp)()
+	t_list *begin_list,
+	void (*f)(void *),
+	void *data_ref,
+	int (*cmp)(void *, void *)
 )
 {
 	while (begin_list != NULL)
@@ -35,6 +38,11 @@ void	ft_list_foreach_if(
 
 #ifdef TEST
 
+static void	puts_wrapper(void *data)
+{
+	puts((char *)data);
+}
+
 // run with test main:
 // clang ft_list_foreach_if.c -W{all,extra} -DTEST && ./a.out
 int	main(void)
@@ -46,7 +54,7 @@ int	main(void)
 	a = (t_list){.data = "don't print", .next = &b};
 	b = (t_list){.data = "print", .next = &c};
 	c = (t_list){.data = "don't print", .next = NULL};
-	ft_list_foreach_if(&a, (void (*)(void *))puts, "print", (int (*)())strcmp);
+	ft_list_foreach_if(&a, puts_wrapper, "print", (int (*)())strcmp);
 }
 
 #endif

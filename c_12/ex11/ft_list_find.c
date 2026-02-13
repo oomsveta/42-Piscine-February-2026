@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:42:11 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 10:08:12 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/13 09:13:44 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@
 #include <stddef.h>		// provides NULL
 #include "ft_list.h"	// provides t_list
 
-t_list	*ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
+t_list	*ft_list_find(
+	t_list *begin_list,
+	void *data_ref,
+	int (*cmp)(void *, void *)
+)
 {
 	while (begin_list != NULL)
 	{

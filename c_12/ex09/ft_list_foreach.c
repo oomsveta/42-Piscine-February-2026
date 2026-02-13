@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 15:30:16 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 08:42:42 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/13 09:09:15 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
 
 #ifdef TEST
 
+static void	puts_wrapper(void *data)
+{
+	puts((char *)data);
+}
+
 // run with test main:
 // clang ft_list_foreach.c -W{all,extra} -DTEST && ./a.out
 int	main(void)
@@ -36,10 +41,10 @@ int	main(void)
 	t_list	b;
 	t_list	c;
 
-	a = (t_list){.data = "3. Tail", .next = NULL};
-	b = (t_list){.data = "2. Node", .next = &a};
-	c = (t_list){.data = "1. Head", .next = &b};
-	ft_list_foreach(&c, (void (*)(void *))puts);
+	a = (t_list){.data = "1. Head", .next = &b};
+	b = (t_list){.data = "2. Node", .next = &c};
+	c = (t_list){.data = "3. Tail", .next = NULL};
+	ft_list_foreach(&a, puts_wrapper);
 }
 
 #endif

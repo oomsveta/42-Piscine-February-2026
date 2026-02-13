@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:57:01 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 10:09:39 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/13 10:06:34 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ static void	ft_list_push_front(t_list **begin_list, void *data)
 int	main(void)
 {
 	t_list	*head;
+	t_list	*tmp;
 
 	head = NULL;
 	assert(ft_list_at(head, 0) == NULL);
@@ -75,6 +76,12 @@ int	main(void)
 	assert(ft_list_at(head, 1) == head->next);
 	assert(ft_list_at(head, 2) == NULL);
 	puts("✅ All tests passed");
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
 }
 
 #endif

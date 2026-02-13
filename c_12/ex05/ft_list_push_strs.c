@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:17:53 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 17:00:16 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/13 10:09:49 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #endif
 
 #include <stddef.h>		// NULL
-#include "ft_list.h"	// t_list
+#include "ft_list.h"	// ft_create_elem, t_list
 
 static void	ft_list_push_front(t_list **begin_list, void *data)
 {
@@ -65,13 +65,21 @@ t_list	*ft_create_elem(void *data)
 // clang ft_list_push_strs.c -W{all,extra} -DTEST && ./a.out
 int	main(void)
 {
-	const char		*strings[] = {"a", "b", "c"};
-	const t_list	*head = ft_list_push_strs(3, (char **)strings);
+	const char	*strings[] = {"a", "b", "c"};
+	t_list		*head;
+	t_list		*tmp;
 
+	head = ft_list_push_strs(3, (char **)strings);
 	assert(head->data == strings[2]);
 	assert(head->next->data == strings[1]);
 	assert(head->next->next->data == strings[0]);
 	puts("✅ All tests passed");
+	while (head)
+	{
+		tmp = (t_list *)head;
+		head = head->next;
+		free(tmp);
+	}
 }
 
 #endif

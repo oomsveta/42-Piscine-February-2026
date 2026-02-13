@@ -6,17 +6,18 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 15:22:25 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 15:52:35 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/13 08:57:19 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifdef TEST
 # include <assert.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 #endif
 
-#include "ft_list.h"	// provides ft_create_elem
+#include "ft_list.h"	// provides ft_create_elem, t_list
 
 void	ft_list_push_front(t_list **begin_list, void *data)
 {
@@ -64,6 +65,7 @@ int	main(void)
 	assert(strcmp(head->data, "0. New head") == 0);
 	assert(head->next == NULL);
 	free(head);
+	puts("✅ All tests passed");
 }
 
 #endif
