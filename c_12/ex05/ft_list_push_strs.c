@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:17:53 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/13 10:11:18 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/13 12:02:32 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_list	*ft_list_push_strs(int size, char **strs)
 	t_list	*head;
 	int		i;
 
+	head = NULL;
 	i = 0;
 	while (i < size)
 	{
