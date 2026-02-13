@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:17:53 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/13 10:09:49 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/13 10:11:18 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	main(void)
 	puts("✅ All tests passed");
 	while (head)
 	{
-		tmp = (t_list *)head;
+		tmp = head;
 		head = head->next;
 		free(tmp);
 	}
