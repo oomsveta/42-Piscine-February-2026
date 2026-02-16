@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 21:54:17 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 13:54:43 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/16 21:35:34 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ int		parse_int(const char *nptr, int *result);
 
 static void	(*g_ops[])(int, int) = {
 	ft_mod,
-	0,
-	0,
-	0,
-	0,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
 	ft_mul,
 	ft_add,
-	0,
+	NULL,
 	ft_sub,
-	0,
+	NULL,
 	ft_div,
 };
 
