@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwicket <lwicket@student.42belgium.be>     +#+  +:+       +#+        */
+/*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 15:11:28 by mbuchet           #+#    #+#             */
-/*   Updated: 2026/02/15 22:47:00 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/16 16:25:51 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ static bool	parse_grid_size(t_board *board, const char *arg)
 		}
 	}
 	board->size = count / 4;
-	return (count % 4 == 0);
+	return (count % 4 == 0 && count != 0);
 }
 
 /**
