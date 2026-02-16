@@ -6,13 +6,15 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 18:47:08 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/12 18:54:45 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/16 21:32:05 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_btree.h"	// provides btree_create_node, t_btree
 
-void btree_insert_data(t_btree **root, void *item, int (*cmpf)(void *, void *))
+void	btree_insert_data(
+	t_btree **root, void *item, int (*cmpf)(void *, void *)
+)
 {
 	while (*root)
 	{

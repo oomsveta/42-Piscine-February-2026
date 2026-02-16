@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 11:34:47 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/15 11:39:31 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/16 21:32:51 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_max(int a, int b)
 	return (b);
 }
 
-int btree_level_count(t_btree *root)
+int	btree_level_count(t_btree *root)
 {
 	int	left_count;
 	int	right_count;

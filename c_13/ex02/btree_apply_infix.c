@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:44:41 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/13 09:59:03 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/16 21:32:41 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "ft_btree.h"	// provides t_btree
 
-void btree_apply_infix(t_btree *root, void (*applyf)(void *))
+void	btree_apply_infix(t_btree *root, void (*applyf)(void *))
 {
 	if (!root)
 	{
