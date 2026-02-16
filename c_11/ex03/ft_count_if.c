@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 19:03:55 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 08:00:07 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/16 21:34:24 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_count_if(char *tab[], int length, int (*f)(char *))
 {
-	int i;
-	int acc;
+	int	i;
+	int	acc;
 
 	i = 0;
 	acc = 0;
