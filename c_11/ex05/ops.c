@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 21:56:09 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 10:01:48 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/17 13:10:00 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_sub(int a, int b)
 		ft_puts("Stop : integer underflow");
 		return ;
 	}
-	ft_putnbr(a + b);
+	ft_putnbr(a - b);
 }
 
 void	ft_mul(int a, int b)
