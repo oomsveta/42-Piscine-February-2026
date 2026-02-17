@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atou.c                                          :+:      :+:    :+:   */
+/*   buffering.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 12:07:39 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/16 16:43:01 by lwicket          ###   ########.fr       */
+/*   Created: 2026/02/17 11:12:02 by lwicket           #+#    #+#             */
+/*   Updated: 2026/02/17 11:14:02 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#pragma once
 
-int	ft_atou(const char *nptr)
+#include <stddef.h>
+
+typedef struct s_buffer
 {
-	unsigned int	acc;
+	unsigned char	data[1024];
+	size_t			length;
+}	t_buffer;
 
-	nptr = ft_skip_spaces(nptr);
-	acc = 0;
-	while (ft_isdigit(*nptr))
-	{
-		acc = acc * 10 + (*nptr++ - '0');
-	}
-	return (acc);
-}
+int	flush_buffer(void);
+int	append_to_buffer(unsigned char c);

@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atou.c                                          :+:      :+:    :+:   */
+/*   ft_streq.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 12:07:39 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/16 16:43:01 by lwicket          ###   ########.fr       */
+/*   Created: 2026/02/17 10:03:43 by lwicket           #+#    #+#             */
+/*   Updated: 2026/02/17 10:04:49 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
 #include "ft.h"
 
-int	ft_atou(const char *nptr)
+bool	ft_streq(const char *s1, const char *s2)
 {
-	unsigned int	acc;
-
-	nptr = ft_skip_spaces(nptr);
-	acc = 0;
-	while (ft_isdigit(*nptr))
-	{
-		acc = acc * 10 + (*nptr++ - '0');
-	}
-	return (acc);
+	return (ft_strcmp(s1, s2) == 0);
 }

@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atou.c                                          :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 12:07:39 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/16 16:43:01 by lwicket          ###   ########.fr       */
+/*   Created: 2026/02/17 10:57:16 by lwicket           #+#    #+#             */
+/*   Updated: 2026/02/17 11:15:20 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "buffering.h"
 
-int	ft_atou(const char *nptr)
+int	ft_putchar(int c)
 {
-	unsigned int	acc;
-
-	nptr = ft_skip_spaces(nptr);
-	acc = 0;
-	while (ft_isdigit(*nptr))
-	{
-		acc = acc * 10 + (*nptr++ - '0');
-	}
-	return (acc);
+	return (append_to_buffer((unsigned char)c));
 }

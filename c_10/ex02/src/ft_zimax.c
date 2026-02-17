@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atou.c                                          :+:      :+:    :+:   */
+/*   ft_zimax.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 12:07:39 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/16 16:43:01 by lwicket          ###   ########.fr       */
+/*   Created: 2026/02/16 16:56:53 by lwicket           #+#    #+#             */
+/*   Updated: 2026/02/16 16:57:47 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include <sys/types.h>
 
-int	ft_atou(const char *nptr)
+ssize_t	ft_zimax(ssize_t a, ssize_t b)
 {
-	unsigned int	acc;
-
-	nptr = ft_skip_spaces(nptr);
-	acc = 0;
-	while (ft_isdigit(*nptr))
+	if (a >= b)
 	{
-		acc = acc * 10 + (*nptr++ - '0');
+		return (a);
 	}
-	return (acc);
+	return (b);
 }
