@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 11:32:38 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/16 21:09:25 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/17 08:46:45 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	btree_apply_by_level(
 	t_bfs_node	node;
 	size_t		current_level;
 
-	if (!init_queue(&queue, count_nodes(root)))
+	if (!root || !init_queue(&queue, (count_nodes(root) + 1) / 2))
 		return ;
 	enqueue(&queue, (t_bfs_node){root, 0});
 	current_level = (size_t)-1;
