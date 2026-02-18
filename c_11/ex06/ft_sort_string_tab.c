@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:05:39 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 14:16:17 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/18 16:40:54 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static void	selection_sort(char *arr[], size_t size)
 	size_t	index_of_min;
 
 	i = 0;
+	if (size < 2)
+		return ;
 	while (i < size - 1)
 	{
 		index_of_min = i;
