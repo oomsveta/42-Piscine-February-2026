@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 21:54:17 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/16 21:35:34 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/18 13:50:06 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		return (EXIT_FAILURE);
+		return (EXIT_SUCCESS);
 	}
 	if (parse_int(argv[1], &a) != SUCCESS || parse_int(argv[3], &b) != SUCCESS)
 	{
