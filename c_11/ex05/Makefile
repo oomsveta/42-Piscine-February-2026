@@ -43,12 +43,12 @@ norm:
 	norminette $(SRC) *.h
 
 debug:
-	@$(MAKE) DEBUG=1 all
+	@$(MAKE) DEBUG=1 re
 
 asan:
-	@$(MAKE) DEBUG=1 ASAN=1 all
+	@$(MAKE) DEBUG=1 ASAN=1 re
 
-tests: re
+tests: debug
 	./do-op
 	./do-op 1 + 1
 	./do-op 42amis - --+-20toto12
