@@ -6,9 +6,11 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:12:02 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/16 20:29:12 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/18 19:24:56 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <stddef.h>
 
