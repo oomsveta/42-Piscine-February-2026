@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:22:34 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/18 14:00:18 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/18 22:49:54 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 # include <string.h>
 #endif
 
-#include <stddef.h>
+#include <stdbool.h>	// provides bool, false, true
+#include <stddef.h>		// provides NULL, size_t
 
 static void	ft_swap(char **a, char **b)
 {
@@ -26,30 +27,29 @@ static void	ft_swap(char **a, char **b)
 	*b = tmp;
 }
 
-static void	selection_sort(char *arr[], size_t size, int (*cmp)(char *, char *))
+static void	bubble_sort(char *arr[], size_t size, int (*cmp)(char *, char *))
 {
 	size_t	i;
 	size_t	j;
-	size_t	index_of_min;
+	bool	swapped;
 
-	if (size < 2)
-		return ;
 	i = 0;
 	while (i < size - 1)
 	{
-		index_of_min = i;
-		j = i + 1;
-		while (j < size)
+		swapped = false;
+		j = 0;
+		while (j < size - i - 1)
 		{
-			if (cmp(arr[j], arr[index_of_min]) < 0)
+			if (cmp(arr[j], arr[j + 1]) > 0)
 			{
-				index_of_min = j;
+				ft_swap(&arr[j], &arr[j + 1]);
+				swapped = true;
 			}
 			j += 1;
 		}
-		if (index_of_min != i)
+		if (!swapped)
 		{
-			ft_swap(&arr[i], &arr[index_of_min]);
+			return ;
 		}
 		i += 1;
 	}
@@ -72,7 +72,7 @@ static size_t	get_element_count(char *arr[])
 
 void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
-	selection_sort(tab, get_element_count(tab), cmp);
+	bubble_sort(tab, get_element_count(tab), cmp);
 }
 
 #ifdef TEST
@@ -86,10 +86,9 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	ft_advanced_sort_string_tab(argv + 1, (int (*)(char *, char *))strcmp);
-	while (*argv)
+	while (*++argv)
 	{
 		puts(*argv);
-		argv += 1;
 	}
 }
 
