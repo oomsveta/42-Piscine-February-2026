@@ -6,16 +6,11 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 21:54:17 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/18 13:50:06 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/18 23:25:51 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>	// provides EXIT_FAILURE, EXIT_SUCCESS, NULL
-
-// could be an enum
-#define SUCCESS 1
-#define OVERFLOW_ERROR 2
-#define UNDERFLOW_ERROR 3
+#include <stdlib.h>	// provides EXIT_SUCCESS, NULL
 
 void	ft_add(int a, int b);
 void	ft_sub(int a, int b);
@@ -23,8 +18,7 @@ void	ft_mul(int a, int b);
 void	ft_div(int a, int b);
 void	ft_mod(int a, int b);
 void	ft_putnbr(int n);
-void	ft_puts(const char *str);
-int		parse_int(const char *nptr, int *result);
+int		ft_atoi(const char *nptr);
 
 static void	(*g_ops[])(int, int) = {
 	ft_mod,
@@ -57,17 +51,9 @@ static void	do_op(int a, int b, char *op)
 
 int	main(int argc, char *argv[])
 {
-	int	a;
-	int	b;
-
 	if (argc != 4)
 	{
 		return (EXIT_SUCCESS);
 	}
-	if (parse_int(argv[1], &a) != SUCCESS || parse_int(argv[3], &b) != SUCCESS)
-	{
-		ft_puts("Stop : input doesn't fit in an integer");
-		return (EXIT_SUCCESS);
-	}
-	do_op(a, b, argv[2]);
+	do_op(ft_atoi(argv[1]), ft_atoi(argv[3]), argv[2]);
 }

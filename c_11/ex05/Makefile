@@ -1,6 +1,6 @@
 NAME = do-op
 
-SRC := main.c ops.c parse.c print.c
+SRC := ft_atoi.c main.c ops.c print.c
 OBJ := $(SRC:.c=.o)
 
 CC := cc
