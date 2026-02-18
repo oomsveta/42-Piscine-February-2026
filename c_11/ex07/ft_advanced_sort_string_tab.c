@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:22:34 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/11 14:28:40 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/18 14:00:18 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void	selection_sort(char *arr[], size_t size, int (*cmp)(char *, char *))
 	size_t	j;
 	size_t	index_of_min;
 
+	if (size < 2)
+		return ;
 	i = 0;
 	while (i < size - 1)
 	{
@@ -76,7 +78,7 @@ void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 #ifdef TEST
 
 // run with test main:
-// clang ft_advanced_sort_string_tab.c -W{all,extra} && ./a.out
+// clang ft_advanced_sort_string_tab.c -DTEST -W{all,extra} && ./a.out
 int	main(int argc, char *argv[])
 {
 	if (argc < 2)
