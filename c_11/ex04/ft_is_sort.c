@@ -6,10 +6,11 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 21:47:58 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/18 13:25:38 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/18 20:00:27 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
 #ifdef TEST
 # include <assert.h>
 # include <limits.h>
@@ -18,16 +19,24 @@
 
 int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
-	int	i;
+	bool	is_ascending;
+	bool	is_descending;
+	int		i;
+	int		diff;
 
 	if (length == 0)
 	{
 		return (1);
 	}
-	i = 1;
-	while (i < length)
+	i = 0;
+	is_ascending = false;
+	is_descending = false;
+	while (i < length - 1)
 	{
-		if (f(tab[i - 1], tab[i]) > 0)
+		diff = f(tab[i], tab[i + 1]);
+		is_ascending |= diff < 0;
+		is_descending |= diff > 0;
+		if (is_ascending && is_descending)
 		{
 			return (0);
 		}
@@ -53,14 +62,19 @@ int	main(void)
 	const int	test1[] = {};
 	const int	test2[] = {1};
 	const int	test3[] = {INT_MIN, 0, INT_MAX};
-	const int	test4[] = {INT_MAX, 2, INT_MIN};
-	const int	test5[] = {INT_MAX, INT_MIN};
+	const int	test4[] = {INT_MAX, INT_MAX, 2, INT_MIN};
+	const int	test5[] = {
+		7, 7, 7, 7, 6, 6, 6, 6, 5, 5, 4, 3, 3,
+		3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1
+	};
 
 	assert(ft_is_sort((int *)test1, 0, cmp));
 	assert(ft_is_sort((int *)test2, 1, cmp));
 	assert(ft_is_sort((int *)test3, 3, cmp));
-	assert(!ft_is_sort((int *)test4, 3, cmp));
-	assert(!ft_is_sort((int *)test5, 2, cmp));
+	assert(ft_is_sort((int *)test4, 4, cmp));
+	assert(ft_is_sort((int *)test5, sizeof test5 / sizeof(int), cmp));
+	assert(!ft_is_sort((int []){2, 3, 1}, 3, cmp));
+	assert(ft_is_sort((int []){3, 2}, 3, cmp));
 	puts("✅ All tests passed");
 }
 
