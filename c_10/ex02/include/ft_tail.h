@@ -6,16 +6,19 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:49:18 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/19 09:00:58 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/19 14:55:59 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <stddef.h>
+#include <stdbool.h>
 #include <sys/types.h>	// provides ssize_t
 
-#define READ_SIZE 4096
+int				tail(const char *fname, ssize_t n, bool header);
+void			print_errno(const char *filename);
+void			print_error(const char *msg, const char *extra);
 
 // =======
 // Parsing
@@ -34,6 +37,7 @@ size_t			count_filenames(const char *args[]);
 // ===============
 // File Management
 // ===============
+
 typedef struct s_file
 {
 	const char	*name;
@@ -46,6 +50,7 @@ int				close_file(t_file file);
 // ===============
 // Circular Buffer
 // ===============
+
 typedef struct s_ring_buffer
 {
 	char	*data;

@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 13:32:52 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/19 09:18:25 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/19 15:34:06 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,26 @@ size_t	count_filenames(const char *args[])
 
 ssize_t	parse_byte_option(const char *args[])
 {
-	size_t	i;
+	size_t		i;
+	ssize_t		val;
+	const char	*str;
 
 	i = 0;
 	while (args[i] != NULL)
 	{
 		if (ft_strncmp(args[i], "-c", 2) == 0)
 		{
-			return (parse_value(extract_byte_option(args[i], args[i + 1])));
+			str = extract_byte_option(args[i], args[i + 1]);
+			val = parse_value(str);
+			if (val == NOT_A_NUMBER)
+			{
+				print_error("invalid number of bytes: ", str);
+			}
+			else if (val == MISSING_ARG)
+			{
+				print_error("option requires an argument -- 'c'", NULL);
+			}
+			return (val);
 		}
 		i += 1;
 	}

@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 21:41:49 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/19 09:36:52 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/19 15:30:57 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,21 @@
 
 const char	*g_program_name = NULL;
 
-static void	print_error(const char *filename)
+void	print_error(const char *msg, const char *extra)
+{
+	write(STDERR_FILENO, g_program_name, ft_strlen(g_program_name));
+	write(STDERR_FILENO, ": ", 2);
+	write(STDERR_FILENO, msg, ft_strlen(msg));
+	if (extra)
+	{
+		write(STDERR_FILENO, "‘", sizeof "‘" - 1);
+		write(STDERR_FILENO, extra, ft_strlen(extra));
+		write(STDERR_FILENO, "’", sizeof "’" - 1);
+	}
+	write(STDERR_FILENO, "\n", 1);
+}
+
+void	print_errno(const char *filename)
 {
 	const char	*error_msg = strerror(errno);
 
@@ -40,96 +54,19 @@ static void	print_error(const char *filename)
 	write(STDERR_FILENO, "\n", 1);
 }
 
-static void	print_header(const char *filename)
-{
-	write(STDOUT_FILENO, "==> ", 4);
-	write(STDOUT_FILENO, filename, ft_strlen(filename));
-	write(STDOUT_FILENO, " <==\n", 5);
-}
-
-int	tail_stream(int fd, int n)
-{
-	t_ring_buffer	ring_buffer;
-	char			read_buffer[READ_SIZE];
-	ssize_t			bytes_read;
-	int				bytes_written;
-	size_t			i;
-
-	if (n == 0)
-	{
-		bytes_read = read(fd, read_buffer, READ_SIZE);
-		while (bytes_read > 0)
-		{
-			bytes_read = read(fd, read_buffer, READ_SIZE);
-		}
-		return (bytes_read);
-	}
-	ring_buffer = init_ring_buffer(n);
-	if (!ring_buffer.data)
-	{
-		return (-1);
-	}
-	bytes_read = read(fd, read_buffer, READ_SIZE);
-	while (bytes_read > 0)
-	{
-		i = 0;
-		while (i < (size_t)bytes_read)
-		{
-			append_to_ring_buffer(&ring_buffer, read_buffer[i]);
-			i += 1;
-		}
-		bytes_read = read(fd, read_buffer, READ_SIZE);
-	}
-	bytes_written = print_ring_buffer(&ring_buffer);
-	free_ring_buffer(&ring_buffer);
-	return (bytes_written);
-}
-
-int	tail(const char *filename, ssize_t nbr_of_bytes, bool should_print_header)
-{
-	const t_file	file = open_file(filename);
-
-	if (file.fd == -1)
-	{
-		print_error(file.name);
-		return (-1);
-	}
-	if (should_print_header)
-	{
-		print_header(file.name);
-	}
-	if (tail_stream(file.fd, nbr_of_bytes) < 0)
-	{
-		print_error(file.name);
-		close_file(file);
-		return (-1);
-	}
-	if (close_file(file) == -1)
-	{
-		print_error(file.name);
-		return (-1);
-	}
-	return (0);
-}
-
 int	main(int argc, char *argv[])
 {
-	const ssize_t	nbr_of_bytes = parse_byte_option((const char **)argv + 1);
+	ssize_t			nbr_of_bytes;
 	const size_t	nbr_of_files = count_filenames((const char **)argv + 1);
 	const bool		should_print_header = nbr_of_files > 1;
 	int				exit_status;
 
 	g_program_name = *argv++;
+	nbr_of_bytes = parse_byte_option((const char **)argv);
 	if (nbr_of_bytes < 0)
-	{
-		puts("[DEBUG] no options");
-		return (EXIT_FAILURE);
-	}
+		return (nbr_of_bytes == NO_OPTIONS);
 	if (nbr_of_files == 0)
-	{
-		puts("[DEBUG] no args");
 		return (tail("-", nbr_of_bytes, should_print_header));
-	}
 	exit_status = 0;
 	while (*argv != NULL)
 	{

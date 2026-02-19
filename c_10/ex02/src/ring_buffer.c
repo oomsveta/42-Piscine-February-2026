@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 09:48:27 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/18 10:15:44 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/19 10:46:18 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,7 @@ int	print_ring_buffer(t_ring_buffer *buffer)
 	{
 		to_print = buffer->data[(start_offset + i) % buffer->capacity];
 		if (ft_putchar(to_print) == -1)
-		{
 			return (-1);
-		}
 		i += 1;
 	}
 	return (flush_buffer());

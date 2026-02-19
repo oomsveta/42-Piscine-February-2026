@@ -4,7 +4,7 @@ INCLUDE_DIR := include
 BUILD_DIR := build
 SRC_DIR := src
 
-SRC_FILES := main.c buffering.c parser.c fs.c ft_atou.c ft_isdigit.c ft_putchar.c ft_memset.c ft_skip_spaces.c ft_strcmp.c ft_streq.c ft_strncmp.c ft_strlen.c ft_zimax.c ring_buffer.c
+SRC_FILES := main.c buffering.c parser.c fs.c ft_isdigit.c ft_putchar.c ft_skip_spaces.c ft_streq.c ft_strncmp.c ft_strlen.c ring_buffer.c tail.c
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC))
 DEP := $(OBJ:.o=.d)
