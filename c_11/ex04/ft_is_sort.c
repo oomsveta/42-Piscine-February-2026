@@ -6,16 +6,17 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 21:47:58 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/18 20:00:27 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/19 10:03:58 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
 #ifdef TEST
 # include <assert.h>
 # include <limits.h>
 # include <stdio.h>
 #endif
+
+#include <stdbool.h>
 
 int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
