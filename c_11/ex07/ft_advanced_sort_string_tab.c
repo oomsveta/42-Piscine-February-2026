@@ -6,7 +6,7 @@
 /*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:22:34 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/18 22:49:54 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/19 15:20:14 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static void	bubble_sort(char *arr[], size_t size, int (*cmp)(char *, char *))
 	size_t	j;
 	bool	swapped;
 
+	if (size < 2)
+		return ;
 	i = 0;
 	while (i < size - 1)
 	{
@@ -48,9 +50,7 @@ static void	bubble_sort(char *arr[], size_t size, int (*cmp)(char *, char *))
 			j += 1;
 		}
 		if (!swapped)
-		{
 			return ;
-		}
 		i += 1;
 	}
 }
