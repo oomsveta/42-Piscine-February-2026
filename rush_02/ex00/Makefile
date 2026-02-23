@@ -24,7 +24,7 @@ ifdef DEBUG
 	CFLAGS += -g3 -Og -fsanitize=undefined
 	LDFLAGS += -fsanitize=undefined
 else
-	CFLAGS += -O3 -g0 -flto
+	CFLAGS += -g0 -flto
 	LDFLAGS += -flto
 endif
 
