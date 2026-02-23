@@ -1,0 +1,41 @@
+0: nul
+1: unu
+2: du
+3: tri
+4: kvar
+5: kvin
+6: ses
+7: sep
+8: ok
+9: naŭ
+10: dek
+11: dek unu
+12: dek du
+13: dek tri
+14: dek kvar
+15: dek kvin
+16: dek ses
+17: dek sep
+18: dek ok
+19: dek naŭ
+20: dudek
+30: tridek
+40: kvardek
+50: kvindek
+60: sesdek
+70: sepdek
+80: okdek
+90: naŭdek
+100: cent
+1000: mil
+1000000: miliono
+1000000000: miliardo
+1000000000000: duiliono
+1000000000000000: duiliardo
+1000000000000000000: triliono
+1000000000000000000000: triliardo
+1000000000000000000000000: kvariliono
+1000000000000000000000000000: kvariliardo
+1000000000000000000000000000000: kviniliono
+1000000000000000000000000000000000: kviniliardo
+1000000000000000000000000000000000000: sesiliono
