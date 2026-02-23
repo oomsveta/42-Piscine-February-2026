@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwicket <lwicket@student.42belgium.be>     +#+  +:+       +#+        */
+/*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 14:45:19 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/22 21:06:54 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/23 18:25:34 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ static bool	load_dictionary(const char *filename, t_dict *dict)
 		{
 			free(entry);
 			consume_lines(fd);
+			close(fd);
 			return (false);
 		}
 		free(entry);
