@@ -6,7 +6,7 @@
 /*   By: lwicket <lwicket@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 22:20:55 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/25 14:45:01 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/25 21:33:19 by ahendric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,12 +133,12 @@ static bool	parse_first_line(int fd, t_map *ctx, size_t *total_read)
 			return (true);
 		}
 		if (*total_read == ctx->size && !resize_map(ctx))
-		{
 			return (false);
-		}
 		bytes_read = read(fd, ctx->map + *total_read, ctx->size - *total_read);
 	}
-	return (false);
+	if (bytes_read == 0)
+		ctx->width = *total_read + 1;
+	return (bytes_read >= 0);
 }
 
 bool	parse_map(int fd, t_map *ctx)
