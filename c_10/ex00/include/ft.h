@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
+/*   By: lwicket <lwicket@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 15:52:25 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/08 15:52:58 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/25 18:48:13 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
 size_t	ft_strlen(const char *str);
-int		ft_puts(const char *s);
+int		ft_puterr(const char *error_msg);

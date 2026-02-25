@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwicket <louis.wicket@protonmail.com>      +#+  +:+       +#+        */
+/*   By: lwicket <lwicket@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 15:50:19 by lwicket           #+#    #+#             */
-/*   Updated: 2026/02/08 16:05:20 by lwicket          ###   ########.fr       */
+/*   Updated: 2026/02/25 18:47:32 by lwicket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>	// provides size_t, STDOUT_FILENO, write
+#include <unistd.h>	// provides size_t, STDERR_FILENO, write
 #include <stdio.h>	// provides EOF
 #include "ft.h"		// provides ft_strlen
 
-int	ft_puts(const char *s)
+int	ft_puterr(const char *error_msg)
 {
 	ssize_t	bytes_written;
 
-	bytes_written = write(STDOUT_FILENO, s, ft_strlen(s));
+	bytes_written = write(STDERR_FILENO, error_msg, ft_strlen(error_msg));
 	if (bytes_written == -1)
 	{
 		return (EOF);
 	}
-	if (write(STDOUT_FILENO, "\n", 1) == -1)
+	if (write(STDERR_FILENO, "\n", 1) == -1)
 	{
 		return (EOF);
 	}
