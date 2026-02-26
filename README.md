@@ -2,10 +2,6 @@
 
 These are my solutions to the exercises of the Piscine held at [42 Belgium](https://42belgium.be/en/) in Brussels in February 2026 (from February 2nd to February 27th).
 
-> [!TIP]
-> ### 🚧👷‍♂️ Work In Progress 🏗️🚧
-> The Piscine is still ongoing, things are moving fast over here! This is not a finished project (yet), but you can witness my progress in real time 👁️
-
 ## 🛟 What is the Piscine?
 
 The *Piscine* (French for "swimming pool") is a teaching method developed by the French engineering school EPITA in the 1980s. It consists of a period of several days dedicated to intensive, group-based learning of a programming language. The goal is to learn as much as possible in a limited time, while strengthening group cohesion and providing a unique experience.
